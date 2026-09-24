@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #f7f8fa;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #252525;
+    padding: 25px 40px 50px;
+}
+
+
+
+h1 {
+    text-align: center;
+    color: #3154d8;
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+h1 span {
+    color: #3154d8;
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+
+
+.listar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.listar a {
+    background: #087df5;
+    color: white;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.listar a.verde {
+    background: #168b58;
+}
+
+
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.10);
+
+    min-height: 350px;
+}
+
+
+
+header {
+    height: 135px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: repeating-linear-gradient(
+    135deg,
+    #e9eef5 0px,
+    #e9eef5 34px,
+    #e6ebf3 34px,
+    #e6ebf3 68px
+);
+
+
+}
+
+header img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+
+
+header > span {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    background: #555b63;
+    color: white;
+
+    width: 34px;
+    height: 28px;
+
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+.info {
+    padding: 12px 14px 10px;
+}
+
+.info h2 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
+
+.tipos {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    min-height: 23px;
+}
+
+.tipo {
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* colores de tipos */
+
+.planta {
+    background: #75bd4d;
+}
+
+.veneno {
+    background: #9d3da5;
+}
+
+.fuego {
+    background: #f27b2c;
+}
+
+.agua {
+    background: #638de8;
+}
+
+.electrico {
+    background: #f4ca24;
+    color: #333;
+}
+
+.normal {
+    background: #aaa989;
+}
+
+.hada {
+    background: #ec91aa;
+}
+
+.roca {
+    background: #B8A038;
+}
+.fantasma {
+    background: #725A99;
+}
+
+.tierra {
+    background: #DFC068;
+    color: black;
+}
+
+
+
+.poder {
+    margin-top: 12px;
+    position: relative;
+}
+
+.poder-texto {
+    font-size: 12px;
+    font-weight: bold;
+    color: #73777d;
+    margin-bottom: 4px;
+}
+
+.barra {
+    width: 100%;
+    height: 12px;
+
+    background: #e5e7eb;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.barra-progreso {
+    height: 100%;
+    background: #3f54d6;
+}
+
+.numero-poder {
+    position: absolute;
+    left: 12px;
+    bottom: -1px;
+
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+
+.datos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin-top: 18px;
+    margin-bottom: 14px;
+}
+
+.datos div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.datos span {
+    color: #777;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.datos strong {
+    font-size: 13px;
+}
+
+
+
+button {
+    width: 100%;
+    height: 25px;
+
+    background: white;
+    border: 1px solid #4385ff;
+    border-radius: 4px;
+
+    color: #1670ee;
+
+    font-size: 11px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1670ee;
+    color: white;
+}
+
+
+
