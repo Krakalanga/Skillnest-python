@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
      href="{{ url_for('static', filename='pokemon.css') }}">
-    <title>Document</title>
+    <title>Pokedex</title>
 </head>
 <body>
-     <h1> <span>Pokédex</span></h1>
+
+    <h1> <img src="{{ url_for('static', filename='images/pokebola.png') }}" alt="pokebola" style="width: 50px;"> <span>Pokédex</span></h1>
     <p class="subtitulo">Todos los Pokémon</p>
 
     <div class="listar">
@@ -69,12 +70,12 @@
                 <div class="datos">
 
                     <div>
-                        <span>▮ Altura</span>
+                        <span>Altura</span>
                         <strong>{{ x.altura }}</strong>
                     </div>
 
                     <div>
-                        <span>⚖ Peso</span>
+                        <span> Peso</span>
                         <strong>{{ x.peso }}</strong>
                     </div>
 
