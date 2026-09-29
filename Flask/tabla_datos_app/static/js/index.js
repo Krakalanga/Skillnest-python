@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const conteo = document.getElementById("conteoPlataforma");
 
 
-    //CONVERTIR VALORES DEL DICCIONARIO
+    //CONVERTIR LOS VALORES DEL DICCIONARIO PARA PODER ORDENAR BIEN
 
     function convertirUsuarios(valor) {
 
