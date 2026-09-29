@@ -1,0 +1,25 @@
+body{margin:0;background:#f5f6f8;font-family:"Poppins", sans-serif;color:#212529}
+.containerPrincipal{max-width:1450px;margin:0 auto;padding:20px 35px}
+.tituloPrincipal{color:#0d6efd;margin-bottom:5px}
+.tituloPrincipal i{margin-right:10px}
+header p{color:#555}
+.filter-card{border-radius:10px}
+.filter-title{font-size:1rem;margin-bottom:15px;font-weight:500}
+.form-label{font-size:.9rem;margin-bottom:5px}
+.form-select{font-size:.9rem}
+.cardTabla{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+table{width:100%;border-collapse:collapse}
+thead,thead tr{background:#242729!important}
+thead th{background:#242729!important;color:#fff!important;padding:7px 8px;font-size:.92rem;font-weight:700;border:none!important;text-align:left}
+tbody td{padding:10px 12px;border-bottom:1px solid #e5e5e5;font-size:.9rem}
+tbody tr:hover{background:#f8f9fa}
+.plataformaNombre{display:flex;align-items:center;gap:8px}
+.platform-icon{width:26px;height:26px;border-radius:50%;display:flex;justify-content:center;align-items:center;overflow:hidden;flex-shrink:0}
+.platform-icon img{width:17px;height:17px;object-fit:contain;display:block}
+.usuariosCantidad{font-size:.8rem;display:inline-block;background:#2d80fb;border-radius:12px;padding:3px 12px;color:#fff}
+.paisFiltro{display:inline-block;background:#737b82;color:#fff;padding:3px 7px;border-radius:5px;font-size:.78rem}
+.botonDetalle{width:32px;height:32px;border:1px solid #0dcaf0;background:#fff;color:#0dcaf0;border-radius:4px;display:flex;align-items:center;justify-content:center;transition:.2s}
+.botonDetalle:hover{background:#0dcaf0;color:#fff}
+.table-footer{text-align:right;margin-top:18px;font-size:.8rem;color:#555}
+.modal-content{border-radius:10px}
+.modal-title{font-weight:bold}

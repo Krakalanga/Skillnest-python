@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid containerPrincipal">
+        <header class="text-center mb-2 mt-3">
+            <h1 class="tituloPrincipal fw-bolder text-primary display-5">
+                <i class="bi bi-border-all"></i>
+                Plataformas Digitales
+            </h1>
+
+            <p class="card-subtitle fs-6">
+                Visualización de datos de las principales plataformas digitales
+            </p>
+        </header>
+
+        <section class="filter-card mb-5 p-3 shadow-sm bg-white rounded">
+            <h5 class="filter-title">
+                 <i class="bi bi-funnel-fill"></i>
+                 Filtros y Ordenamiento
+            </h5>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">Filtrar por pais:</label>
+                    <select id="filtroPais" class="form-select">
+                            <option value="all">
+                                Todos los países
+                            </option>
+
+                            <option value="EE.UU.">
+                                EE.UU.
+                            </option>
+
+                            <option value="Suecia">
+                                Suecia
+                            </option>
+
+                            <option value="China">
+                                China
+                            </option>
+                    </select>
+
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">
+                        Ordenar por:
+                    </label>
+                    <select id="ordenarPor" class="form-select">
+                        <option value="nombre">
+                            Nombre
+                        </option>
+
+                        <option value="usuarios">
+                            Usuarios
+                        </option>
+
+                        <option value="fundacion">
+                            Año Fundación
+                        </option>
+
+                        <option value="pais">
+                            País
+                        </option>
+
+                    </select>
+
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">
+                        Dirección:
+                    </label>
+                    <select id="direccion" class="form-select">
+                        <option value="asc">
+                            Ascendente
+                        </option>
+                        <option value="desc">
+                            Descendente
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="cardTabla">
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+
+                            <th>Usuarios</th>
+
+                            <th>Año Fundación</th>
+
+                            <th>País</th>
+
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaPlataforma">
+                        {% for x in datos %}
+                        <tr data-name="{{x.nombre}}" data-country="{{x.pais}}" data-year="{{x.fundado}}" data-users="{{x.usuarios}}">
+                            <td>
+                                <div class="plataformaNombre">
+                                    <span class="platform-icon" style="background: {{x.color}};">
+                                        <img src="{{url_for('static', filename = 'img/' + x.logo) }}" alt="Logo de {{x.nombre}}">                                      
+                                    </span>
+                                    <strong>
+                                        {{x.nombre}}
+                                    </strong>
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="usuariosCantidad">
+                                    {{x.usuarios}}
+                                </span>
+                            </td>
+
+                            <td>
+                                {{x.fundado}}
+                            </td>
+
+                            <td>
+                                <span class="paisFiltro">
+                                    {{x.pais}}
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="botonDetalle"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detailModal"
+                                data-name="{{ x.nombre }}"
+                                data-users="{{ x.usuarios }}"
+                                data-year="{{ x.fundado }}"
+                                data-country="{{ x.pais }}">
+                                    <i class="bi bi-info-circle-fill"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-footer">
+                Mostrando
+                <span id="conteoPlataforma">
+                    {{datos|length}}
+                </span>
+                plataformas
+            </div>
+
+        </section>
+
+    </div>
+
+
+                <!---- DETALLES A MOSTRAR -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalName">Plataforma</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <strong>Usuarios:</strong>
+                        <span id="modalUsers"></span>
+                    </p>
+                    <p>
+                        <strong>Año fundación:</strong>
+                        <span id="modalYear"></span>
+                    </p>
+                    <p>
+                        <strong>País:</strong>
+                        <span id="modalCountry"></span>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    
+
+{% endblock %}
