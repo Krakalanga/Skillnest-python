@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+    <main>
+        <div class="shell">
+
+            <div class="page-header">
+                <div class="eyebrow">Panel</div>
+                <h1 class="page-title">Contador de visitas</h1>
+                <p class="page-subtitle">
+                    Los datos se guardan mediante cookies!
+                </p>
+            </div>
+
+    
+            <section class="metric" aria-labelledby="metric-label">
+                <div class="metric-head">
+                    <div>
+                        <p class="metric-label" id="metric-label">Visitas totales!</p>
+                        <p class="metric-hint">Actual</p>
+                    </div>
+                </div>
+
+                <p class="metric-value">{{ cantidad }}</p>
+
+                <div class="metric-footer">
+                    <span>Reiniciado <strong>{{ reiniciado }} {{ 'vez' if reiniciado == 1 else 'veces' }} </strong></span>
+                </div>
+            </section>
+
+            <section class="actions" aria-label="Acciones rápidas">
+                <a href="/aumentar2" class="btn btn-primary">
+                    Aumentar +2
+                </a>
+                <a href="/reiniciar0" class="btn btn-secondary">
+                    Reiniciar a 0
+                </a>
+            </section>
+
+            <section class="panel">
+                <div class="panel-head">
+                    <h2 class="panel-title">Cantidad personalizada</h2>
+                    <p class="panel-desc">Suma un número específico de visitas al contador.</p>
+                </div>
+                <div class="panel-body">
+                    <form action="/aumentarCantidad" method="post">
+                        <div class="field">
+                            <label for="numero" class="field-label">Número a sumar</label>
+                            <div class="field-row">
+                                <input
+                                    type="number"
+                                    name="numero"
+                                    class="input"
+                                    placeholder="0"
+                                    min="0"
+                                    required
+                                    autocomplete="off">
+                                <button type="submit" class="btn btn-primary">
+                                    Sumar!
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="panel" style="margin-top: var(--s-6);">
+                <div class="panel-body" style="display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); flex-wrap: wrap;">
+                    <div>
+                        <p class="panel-title" style="margin: 0;">Cerrar sesión</p>
+                        <p class="panel-desc" style="margin: var(--s-1) 0 0;">
+                            Elimina todos los datos guardados en la sesión
+                        </p>
+                    </div>
+                    <a href="/destruir_sesion" class="btn btn-danger">
+                        Destruir sesión
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        Contador de visitas · Flask
+    </footer>
+
+</body>
+</html>
