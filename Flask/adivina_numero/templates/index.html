@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el número</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="container py-5" style="max-width: 480px;">
+
+        <header class="mb-4">
+            <h1 class="h3 fw-semibold mb-2">Adivina el número</h1>
+            <p class="text-body-secondary mb-0">
+                He pensado un número entre el <strong class="text-body">1</strong>
+                y el <strong class="text-body"> 10</strong>.
+            </p>
+        </header>
+
+ 
+        <div class="card mb-4">
+            <div class="card-body p-4">
+
+               
+                <div class="d-flex justify-content-between align-items-center
+                            pb-3 mb-3 border-bottom">
+                    <span class="text-body-secondary small text-uppercase fw-medium ls-1">
+                        Intentos
+                    </span>
+                    <span class="font-monospace fw-semibold">{{ intentos }}</span>
+                </div>
+
+           
+                <div class="small mb-3
+                            {% if mensaje and ganado %}text-success
+                            {% elif mensaje %}text-warning
+                            {% else %}text-body-secondary{% endif %}"
+                     role="status"
+                     aria-live="polite">
+                    {% if mensaje %}
+                        {{ mensaje }}
+                    {% else %}
+                        Escribe tu primer intento.
+                    {% endif %}
+                </div>
+
+              
+                <form action="/adivinar" method="post" novalidate>
+                    <div class="mb-3">
+                        <label for="numero" class="form-label small text-body-secondary">
+                            Tu elección
+                        </label>
+                        <input
+                            type="number"
+                            id="numero"
+                            name="numero"
+                            class="form-control form-control-lg text-center font-monospace fw-semibold"
+                            min="1"
+                            max="10"
+                            inputmode="numeric"
+                            autocomplete="off"
+                            placeholder="1-10"
+                            required
+                            autofocus>
+                    </div>
+
+                    <div class="d-grid gap-2 d-sm-flex">
+                        <button type="submit" class="btn btn-primary flex-fill">
+                            Adivinar
+                        </button>
+                        <a href="/reiniciar" class="btn btn-outline-secondary">
+                            Reiniciar
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+      
+        <div class="text-body-secondary small">
+            <h2 class="h6 text-uppercase fw-medium ls-1 mb-2">Cómo jugar</h2>
+            <ol class="mb-0 ps-3 lh-lg">
+                <li>Escribe un número y envíalo.</li>
+                <li>Recibirás una pista: <em class="text-body fst-normal">muy alto</em>
+                    o <em class="text-body fst-normal">muy bajo</em>.</li>
+                <li>Encuéntralo en la menor cantidad de intentos.</li>
+            </ol>
+        </div>
+
+    </main>
+
+</body>
+</html>
