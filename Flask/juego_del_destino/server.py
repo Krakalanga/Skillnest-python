@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, session
+import random
 
 app = Flask(__name__)
 app.secret_key = '123'
@@ -16,7 +17,11 @@ def futuro():
         session['lugar'] = request.form.get('lugar')
     if 'comida' not in session:
         session['comida'] = request.form.get('comida')
-    return render_template('futuro.html', nombre = session['nombre'], numero = session['numero'], lugar = session['lugar'], comida = session['comida'])
+    if 'profesion' not in session:
+        session['profesion'] = request.form.get('profesion')
+    if random.randint(0,1) == 1:
+        return render_template('futuroMalo.html', nombre = session['nombre'], numero = session['numero'], lugar = session['lugar'], comida = session['comida'], profesion = session['profesion'])
+    return render_template('futuro.html', nombre = session['nombre'], numero = session['numero'], lugar = session['lugar'], comida = session['comida'], profesion = session['profesion'])
 
 @app.route('/volver')
 def reiniciar():

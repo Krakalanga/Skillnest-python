@@ -86,6 +86,7 @@ button:active {
 .lugar  { color: yellow; }
 .comida { color: #11caef; }
 .nombre { color: green; }
+.profesion { color: red; }
 
 a{ 
     color: #50a1fd;
