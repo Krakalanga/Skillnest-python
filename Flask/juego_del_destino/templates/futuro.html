@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+    <title>Futuro</title>
+</head>
+<body>
+    <p class="futuro">
+        Soy el adivino del Dojo, <strong class="nombre">{{nombre}}</strong> tendrá un viaje muy largo dentro <br> de <strong class="numero">{{numero}} </strong>años a <strong class="lugar">{{lugar}}</strong>
+        y estará el resto de sus días preparando <br> <strong class="comida">{{comida}}</strong> para todas las personas que quiere.
+    </p>
+    <a href="/volver">¡Jugar de nuevo!</a>
+</body>
+</html>
